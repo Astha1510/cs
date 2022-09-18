@@ -1,0 +1,22 @@
+5. Take two inputs (integers) from user and using pointers p1 & p2, find the number of elements
+present between these two entries.
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+ int x,y;
+printf("\n Enter the number1");
+scanf("%d",&x);
+printf("\n Enter the number2");
+scanf("%d",&y);
+int *p = &x;
+ int *q = &y;
+
+
+ int i = *p;
+while(i<*q)
+{
+printf("\n No between x and y are %d",i);
+i++;
+}
+}
