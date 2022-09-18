@@ -1,0 +1,75 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,a[10][10];
+	 int k;
+	printf("Initial values in array: \n");
+    for(int i=0; i<10; i++){
+    for(int j=0; j<10;j++)
+    {  
+	  a[i][j]=1;
+      printf("%d ", a[i][j]);
+    }
+   }
+    printf("\n Store the value (i+j)2 at each index of array: \n");
+    for(int i=0; i<10; i++){
+    for(int j=0; j<10;j++)
+    {  
+	  a[i][j]=(i+j)*(i+j);
+      printf("%d \t", a[i][j]);
+    
+}
+    printf("\n");
+}
+
+ printf("\n\nAfter inserting 121 at location [5,8]: \n");
+
+  for(int i=9; i>=5; i--){
+    for(int j=9; j>=0;j--)//last se element shift hongey
+    {  
+     a[i][j+1]=a[i][j];//last index element will shift eg a[9][9] = a[9][8]
+     if(i==5 && j==8)
+  
+            break;
+    }
+}
+     a[5][8]=121;
+
+
+   for(i=0;i<10;i++)
+    {
+    for(j=0;j<10;j++)
+    {
+    
+    printf("%d \t ",a[i][j]);
+    }
+        printf("\n"); 
+    }
+
+    
+    printf("\n\After deleting 100 \n");
+    //only i se loop isliye chalaya hai because 2d array me bhi memory ka continuous allocation hota hai
+     	int num_deleted = 0;//counter variable
+    	 int *a_pointer = a[0];//pointer variable = array initial address
+     for (int i = 0; i < 100; i++) {
+         if (*(a_pointer + i) == 100) //[0]+0 ==  100 //check whether index is equal to 100 or not
+			 num_deleted++;//if true //num_deleted (counter)= +1//if if is true else will not work i++
+         else
+		 	 *(a_pointer + i - num_deleted) = *(a_pointer + i); //numdel = 0 //same index 
+			                                                    //num del = 1 //index[6] = index[7]
+     }
+     for (int i = 0; i < num_deleted; i++)//0.....0<5....
+	 	{
+        	*(a_pointer + 99 - i) = 1; //[0]+99//last element array ka// 99-1 = 1//99-2 = 97 = 1//
+     	}
+    	for(i=0;i<10;i++)
+	 	{
+    	   for(j=0;j<10;j++)
+	    	{
+        	printf("%d \t ",a[i][j]);
+        	}
+      		printf("\n"); 
+    	}
+   		 return 0;
+     
+  	}
