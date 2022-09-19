@@ -1,0 +1,70 @@
+// Finding the first 100 in the array and deleting it from the location
+  
+  // declaring the variables to store the location of the element 100 in the array
+  //int loc_i;
+  int i_loc;
+  int j_loc;
+
+
+  // Finding the index where the element 100 is found first
+  for (i = 0; i < 10; i++)
+    {
+      for (j = 0; j < 10; j++)
+    	{
+        	  if (arr[i][j] == 100)
+        	    {
+        	      i_loc = i;
+        	      j_loc = j;
+        	      break;
+        
+        	    }
+    	}
+      if (arr[i][j] == 100)
+	    {
+	        break;
+	    }
+
+    }
+
+  // shifting the elements to the left  till the second last element
+  for (i = i_loc; i < 10; i++)
+    {
+      for (j = j_loc; j < 10; j++)
+	    {
+	        if (i == 9 && j == 9)
+	        {
+	            break;
+	        }
+
+	        if (j == 9)
+	        {
+	            arr[i][j] = arr[i + 1][0];
+	        }
+
+	        else
+	        {
+	            arr[i][j] = arr[i][j + 1];
+	        }
+	    }
+
+      j_loc = 0;
+      if (i == 9 && j == 9)
+	    {
+	     break;
+	    }
+    }
+
+  printf ("\n\nPrinting the Array after Deletion : \n");
+  // Printing the Elements after deletion of 100
+  printf ("\n");
+  for (i = 0; i < 10; i++)
+    {
+      for (j = 0; j < 10; j++)
+	  {
+	   printf ("%d ", arr[i][j]);
+	  }
+      printf ("\n");
+     }
+
+  return 0;
+}
